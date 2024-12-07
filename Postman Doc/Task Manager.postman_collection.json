@@ -1,0 +1,352 @@
+{
+	"info": {
+		"_postman_id": "474b0d72-d6e4-4e82-8d1f-de14e21afd29",
+		"name": "Task Manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39406886"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"engr.rabbil@yahoo.com\",\n    \"firstName\":\"Rabbil\",\n    \"lastName\":\"Hasan\",\n    \"mobile\":\"0785388919\",\n    \"password\":\"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/Registration",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"Registration"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"engr.rabbil@yahoo.com\",\n    \"password\":\"abc123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/Login",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProfileDetails",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/ProfileDetails",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"ProfileDetails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProfileUpdate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"Rain\",\n    \"lastName\":\"Hasan\",\n    \"mobile\":\"0785388919\",\n    \"password\":\"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/ProfileUpdate",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"ProfileUpdate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EmailVerify",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/EmailVerify/engr.rabbil@yahoo.com",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"EmailVerify",
+								"engr.rabbil@yahoo.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CodeVerify",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/CodeVerify/engr.rabbil@yahoo.com/910947",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"CodeVerify",
+								"engr.rabbil@yahoo.com",
+								"910947"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ResetPassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"engr.rabbil@yahoo.com\",\n    \"code\":\"910947\",\n    \"password\":\"abc123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/ResetPassword",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"ResetPassword"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "CreateTask",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"ABC\",\n    \"description\":\"123\",\n    \"status\":\"New\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/CreateTask",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"CreateTask"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateTaskStatus",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/UpdateTaskStatus/673e10fc90eaad604fa8e9cd/completed",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"UpdateTaskStatus",
+								"673e10fc90eaad604fa8e9cd",
+								"completed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TaskListByStatus",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/TaskListByStatus/New",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"TaskListByStatus",
+								"New"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteTask",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/DeleteTask/673e163390eaad604fa8e9d3",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"DeleteTask",
+								"673e163390eaad604fa8e9d3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CountTask",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/CountTask",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"CountTask"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASEURL",
+			"value": "http://localhost:5050/api",
+			"type": "string"
+		},
+		{
+			"key": "TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVuZ3IucmFiYmlsQHlhaG9vLmNvbSIsInVzZXJfaWQiOiI2NzNlMGVmNDE1ZDZmN2RmODhiMmU4OWQiLCJpYXQiOjE3MzIxMjM0MTcsImV4cCI6MTczNDcxNTQxN30.ZRMyyoFQp-AU0BSncAk3mXGQt5xcKDLxGmkK0IwJUXQ",
+			"type": "string"
+		}
+	]
+}
